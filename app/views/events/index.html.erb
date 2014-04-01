@@ -1,7 +1,13 @@
-<em><%= @event.event_names %></em>
+
+<em><%= @event.event_name %></em>
 <br/>
 <%= @event.description %>
 <br/>
 <a href="<%= @event.url %>" target="_blank">Click for More Information</a>
+<br/>
+<%= @event.neighborhood %>
+<br/>
+<img src="<%= @event.pic %>"/>
+
 
 

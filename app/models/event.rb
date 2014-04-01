@@ -3,28 +3,41 @@ attr_accessor :event_names, :parsed_response, :response
 
 require 'rest_client'
 
-EVENT_SELECTION = rand(0..55)
-
-def initialize
-  response = RestClient.get 'http://www.kimonolabs.com/api/bo0xm0eg?apikey=605ac5df894ed1e51bc760ce3f0daa17'
-
-  @parsed_response = JSON.parse(response)['results']['collection1']
-
-  @parsed_response.delete_if{ |i| i["description"] == "" || i["description"].length < 50 || i["description"].is_a?(Hash)}
 
 
-end
+  def initialize
+    
+    @event_selection = rand(0..10)
 
-  def event_names
-     @parsed_response.map {|thing| thing["event_name"]}[19]
+    response = RestClient.get 'http://www.kimonolabs.com/api/bo0xm0eg?apikey=605ac5df894ed1e51bc760ce3f0daa17'
+
+    @parsed_response = JSON.parse(response)['results']['collection1'].delete_if{ |i| i["description"] == "" || i["description"].length < 50 || i["description"].is_a?(Hash)}
+
+    @user_choice = @parsed_response.select { |i| i["neighborhood"] == "Midtown West"}
+
+  end
+
+
+
+  def event_name
+     @user_choice.map {|thing| thing["event_name"]}[@event_selection]
   end
 
   def description
-    @parsed_response.map {|thing| thing["description"]}[19]
+    @user_choice.map {|thing| thing["description"]}[@event_selection]
   end
 
   def url
-    @parsed_response.map {|thing| thing["website"]["href"]}[EVENT_SELECTION]
+    @user_choice.map {|thing| thing["website"]["href"]}[@event_selection]
   end
+
+  def pic
+    @user_choice.map {|thing| thing["pic"]["src"]}[@event_selection]
+  end
+
+  def neighborhood
+    @user_choice.map {|thing| thing["neighborhood"]}[@event_selection]
+  end
+
 end
 
