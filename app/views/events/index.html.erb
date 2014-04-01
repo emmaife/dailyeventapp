@@ -1,4 +1,7 @@
-<% @event.event_names.each do |n| %>
-<p><%= n %></p>
-<%end%>
+<em><%= @event.event_names %></em>
+<br/>
+<%= @event.description %>
+<br/>
+<a href="<%= @event.url %>" target="_blank">Click for More Information</a>
+
 
