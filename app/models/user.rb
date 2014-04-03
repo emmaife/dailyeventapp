@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
   has_many :user_categories, :dependent=>:destroy
   has_many :categories, :through => :user_categories
 
+ 
+
 end

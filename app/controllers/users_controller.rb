@@ -49,6 +49,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    # binding.pry
     @user.update(user_params)
     respond_to do |format|
       if @user.update(user_params)
@@ -74,7 +75,7 @@ private
   end
 
   def user_params
-    params.require(:user).permit(:email, :neighborhood_ids => [])
+    params.require(:user).permit(:email, :neighborhood_ids => [], :category_ids => [])
   end
 
 end

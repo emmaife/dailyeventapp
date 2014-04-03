@@ -12,6 +12,7 @@
   <%= f.label :email %>
   <%= f.text_field :email %>
   <%= f.collection_check_boxes(:neighborhood_ids, @neighborhoods, :id, :name) %>
-  
+  <%= f.collection_check_boxes(:category_ids, @categories, :id, :name) %>
+
   <%= f.submit %>
 <% end %>
