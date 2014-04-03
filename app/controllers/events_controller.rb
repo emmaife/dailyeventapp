@@ -9,6 +9,4 @@ class EventsController < ApplicationController
     @user = current_user
     @neighborhoods = Neighborhood.all
   end
-
-
 end

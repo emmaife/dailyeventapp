@@ -47,7 +47,7 @@ private
   end
 
   def neighborhood_params
-    params.require(:neighborhood).permit(:name)
+    params.require(:neighborhood).permit(:name, :neighborhoods)
   end
 
 end

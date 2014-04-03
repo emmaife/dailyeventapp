@@ -11,14 +11,7 @@
 <%= form_for(@user) do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
-  <% @neighborhoods.each do |hood| %>
-    <%= f.label hood.name %>
-    <%= f.check_box(:neighborhoods, {multiple: true }, hood)  %>
-  <% end %>
+  <%= f.collection_check_boxes(:neighborhood_ids, @neighborhoods, :id, :name) %>
+  
   <%= f.submit %>
 <% end %>
-
-<% @neighborhoods.each do |hood| %>
-  <%= hood.name %><br>
-<% end %>
-<%= @user.email %>
