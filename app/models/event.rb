@@ -12,21 +12,23 @@ require 'rest_client'
     @hood_select = 0
     @category_select = rand(0..user_categories.count)
 
-    
-
     response = RestClient.get 'http://www.kimonolabs.com/api/bo0xm0eg?apikey=605ac5df894ed1e51bc760ce3f0daa17'
     @parsed_response = JSON.parse(response)['results']['collection1'].delete_if{ |i| i["description"] == "" || i["description"].length < 50 || i["description"].is_a?(Hash)}
     
-    category_results = @parsed_response.select {|i| i["category"] == user_categories.pluck(:name)[0]}
-    #this only matches the first category. need to get all of them :)
-    @result = category_results.select {|i| i["neighborhood"] == user_neighborhoods.pluck(:name)[@hood_select]}
-   
+    @category_results = []
+    user_categories.pluck(:name).each do |cat|
+       @category_results << @parsed_response.select { |i| i["category"] == cat}
+    end
 
+    @result = []
+    user_neighborhoods.pluck(:name).each do |hood|
+       @result << @category_results.flatten.select { |i| i["neighborhood"] == hood}
+    end
+    @result.flatten!
 
     while @result.empty?
       @hood_select += 1
       if @hood_select <= user_neighborhoods.count
-
         @result = @parsed_response.select { |i| i["neighborhood"] == user_neighborhoods.pluck(:name)[@hood_select]} #&& i["category"] == user_categories.pluck(:name)[@category_select]}
       elsif @hood_select > user_neighborhoods.count
             @result = @parsed_response.select { |i| i["neighborhood"] == "Midtown West"}
@@ -52,6 +54,10 @@ require 'rest_client'
 
   def neighborhood
     @result.map {|thing| thing["neighborhood"]}[@event_selection]
+  end
+
+  def category
+    @result.map {|i| i["category"]}[@event_selection]
   end
 
 
