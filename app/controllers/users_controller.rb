@@ -1,30 +1,3 @@
-# class UsersController < ApplicationController
-  
-#   # def create
-#   #   # selected_user_ids = params[:user_neighborhood].map{|k,v| k if v == "1"}.compact
-#   #   # selected_neighborhood_ids.each do |id|
-#   #   #   UserNeighborhood.create(user_id: current_user.id, neighborhood_id: id.to_i)  
-#   #   # end
-#   #   redirect_to root_path
-#   # end
-
-#   def update
-#     # user_neighborhoods = User.find(params[:neighborhood])
-  
-#     # current_user.update(params[:user])
-#     # self.update_attributes(params[:user])
-#     # user_neighborhoods = params[:user][:neighborhood].each do |hood|
-#     #   hood
-
-
-#   end
-
-#   # def user_params
-#   #   params.require(:user).permit(:user_id, :neighborhood_id)
-#   # end
-
-# end
-
 class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
@@ -53,7 +26,8 @@ class UsersController < ApplicationController
     @user.update(user_params)
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to preferences_path, notice: 'user was successfully updated.' }
+        EventMailer.event_email(@user).deliver
+        format.html { redirect_to root_path, notice: 'user was successfully updated.' }
       else
         format.html { render action: 'edit' }
       end

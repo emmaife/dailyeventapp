@@ -23,6 +23,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'devise'
+gem "figaro", git: "https://github.com/laserlemon/figaro.git"
+gem "postmark"
+gem 'postmark-rails', '~> 0.5.2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
