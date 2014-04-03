@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   
   # def create
-  
   #   # selected_neighborhood_ids = params[:user_neighborhood].map{|k,v| k if v == "1"}.compact
   #   # selected_neighborhood_ids.each do |id|
   #   #   UserNeighborhood.create(user_id: current_user.id, neighborhood_id: id.to_i)  

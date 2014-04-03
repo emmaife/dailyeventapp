@@ -1,10 +1,24 @@
 Rails.application.routes.draw do
+  resources :user_neighborhoods
+
+  resources :categories
+
+  resources :neighborhoods
+
+  devise_for :users
+  resources :users
+
+  root 'events#index'
+  
+  get '/preferences' => 'events#preferences'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
- root 'events#index'
+
+ # post '/user_neighborhoods' => 'user_neighborhoods/create'
+ # resources :preferences
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
