@@ -6,15 +6,40 @@
    <h3>Select Neighborhood Preferences:</h3>
 
 <font size="3">
+
+<% queens %>
+<% manhattan %>
+
+<font color = "#0b6121">Queens </font>|
+<font color = "green"> Brooklyn </font> |
+<font color = "#04b404">Manhattan</font>
+<br/>
+<br/>
+
   <%= f.collection_check_boxes(:neighborhood_ids, @neighborhoods, :id, :name) do |cb|%>
-    | <%=cb.check_box%> <%= cb.label %>  
-    <%end%> </font>
+
+    <% case %>
+    <% when queens.include?(cb.text) %>
+     <font color = "#0b6121"> <%= cb.check_box %><%= cb.label %></font>
+
+    <% when brooklyn.include?(cb.text) %>
+      <font color = "green"><%= cb.check_box %><%= cb.label %></font>
+
+    <% when manhattan.include?(cb.text) %>
+      <font color = "04b404"><%= cb.check_box %><%= cb.label %></font>
+
+    <% end %>
+
+
+    <% end %>
+
+</font>
 
   <h3>Select Your Interests:</h3>
 
 <font size="3"> 
   <%= f.collection_check_boxes(:category_ids, @categories, :id, :name) do |cb| %>
-    |  <%=cb.check_box%> <%= cb.label %> 
+      <%=cb.check_box%> <%= cb.label %> |
     <%end%> </font> <br/>
 
     <%= f.submit 'Save'%>
