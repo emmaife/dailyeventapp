@@ -20,7 +20,7 @@
 
     <% case %>
     <% when queens.include?(cb.text) %>
-     <font color = "#0b6121"> <%= cb.check_box %><%= cb.label %></font>
+    <font color = "#0b6121"> <%= cb.check_box %><%= cb.label %></font>
 
     <% when brooklyn.include?(cb.text) %>
       <font color = "green"><%= cb.check_box %><%= cb.label %></font>
@@ -30,7 +30,6 @@
 
     <% end %>
 
-
     <% end %>
 
 </font>
@@ -39,7 +38,7 @@
 
 <font size="3"> 
   <%= f.collection_check_boxes(:category_ids, @categories, :id, :name) do |cb| %>
-      <%=cb.check_box%> <%= cb.label %> |
+      <%=cb.check_box%><%= cb.label %> |
     <%end%> </font> <br/>
 
     <%= f.submit 'Save'%>
