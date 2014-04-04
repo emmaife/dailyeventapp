@@ -1,21 +1,25 @@
-<!-- , url: user_neighborhoods_path -->
-<%#= form_for(@neighborhoods) do |f| %> 
-<%# @neighborhoods.each do |i| %>
-
-  <%#= f.label :name %>
-  <%#= f.check_box :id %>
-
-  <%#= f.submit 'Save' %>
-<%# end %>
-
+<br/>
 <%= form_for(@user) do |f| %>
   <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.collection_check_boxes(:neighborhood_ids, @neighborhoods, :id, :name) %>
-  <%= f.collection_check_boxes(:category_ids, @categories, :id, :name) %>
+  <%= f.text_field :email %><br/>
+ 
+   <h3>Select Neighborhood Preferences:</h3>
 
-  <%= f.submit %>
-<% end %>
+<font size="3">
+  <%= f.collection_check_boxes(:neighborhood_ids, @neighborhoods, :id, :name) do |cb|%>
+    | <%=cb.check_box%> <%= cb.label %>  
+    <%end%> </font>
+
+  <h3>Select Your Interests:</h3>
+
+<font size="3"> 
+  <%= f.collection_check_boxes(:category_ids, @categories, :id, :name) do |cb| %>
+    |  <%=cb.check_box%> <%= cb.label %> 
+    <%end%> </font> <br/>
+
+    <%= f.submit 'Save'%>
+
+    <% end %>
 
 
 <%= link_to "Home", root_path %>
