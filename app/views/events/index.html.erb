@@ -1,19 +1,18 @@
 
+<div align = 'right'><button type="button" class="btn btn-primary btn-lg"><%= link_to "Update Preferences", preferences_path %></button></div>
 
-<em><h1><%= @event.event_name %></h1></em>
+<center><em><h1><%= @event.event_name %></h1></em>
+<h4><p>Neighborhood:<%= @event.neighborhood %><br/> Category:<%= @event.category %></p></h4>
+</center>
 <br/>
-<%= @event.description %>
+<p><%= @event.description %></p>
 <br/>
-<a href="<%= @event.url %>" target="_blank">Click for More Information</a>
+<center><a href="<%= @event.url %>" target="_blank">Click for More Information</a></center>
 <br/>
 <br/>
-<p>Neighbhorhood: </p><%= @event.neighborhood %>
 <br/>
-
-<p>Category: </p><%= @event.category %>
-<br/>
-<img src="<%= @event.pic %>" class="img-responsive img-circle"/></br>
+<center><img src="<%= @event.pic %>" class="img-responsive img-circle"/></br></center>
 
 <br/>
-<button type="button" class="btn btn-primary btn-lg"><%= link_to "Update Preferences", preferences_path %></button>
+
 

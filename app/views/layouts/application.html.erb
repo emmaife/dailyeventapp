@@ -7,6 +7,9 @@
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
 </head>
+<header>
+  <img src= '/assets/simple_logo.jpg' class="img-responsive" alt="Responsive image">
+</header>
 
 <body>
 
@@ -27,5 +30,7 @@
 <%= yield %>
 
 </div>
+
 </body>
+
 </html>
