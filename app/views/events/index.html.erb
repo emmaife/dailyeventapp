@@ -1,17 +1,19 @@
 
-<em><%= @event.event_name %></em>
+
+<em><h1><%= @event.event_name %></h1></em>
 <br/>
 <%= @event.description %>
 <br/>
 <a href="<%= @event.url %>" target="_blank">Click for More Information</a>
 <br/>
-<%= @event.neighborhood %>
 <br/>
-<img src="<%= @event.pic %>"/></br>
+<p>Neighbhorhood: </p><%= @event.neighborhood %>
 <br/>
-<%= @event.category %>
-<br/>
-<%= link_to "Preferences", preferences_path %>
 
+<p>Category: </p><%= @event.category %>
+<br/>
+<img src="<%= @event.pic %>" class="img-responsive img-circle"/></br>
 
+<br/>
+<button type="button" class="btn btn-primary btn-lg"><%= link_to "Update Preferences", preferences_path %></button>
 

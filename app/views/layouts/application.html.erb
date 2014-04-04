@@ -10,6 +10,8 @@
 
 <body>
 
+<div class="container-fluid">
+
   <div id="user_nav">
   <% if user_signed_in? %>
     Signed in as <%= current_user.email %>. Not you?
@@ -24,5 +26,6 @@
 
 <%= yield %>
 
+</div>
 </body>
 </html>
