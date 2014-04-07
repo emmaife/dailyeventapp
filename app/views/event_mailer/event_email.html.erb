@@ -4,15 +4,16 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-<em><%= @event.event_name %></em>
+<center><em><h3><%= @event.event_name %></h3></em></center>
 <br/>
-<%= @event.description %>
+<p><%= @event.description %></p>
 <br/>
-<a href="<%= @event.url %>" target="_blank">Click for More Information</a>
+<center><a href="<%= @event.url %>" target="_blank">Click for More Information</a>
 <br/>
 <%= @event.neighborhood %>
 <br/>
-<img src="<%= @event.pic %>"/></br>
+<img src="<%= @event.pic %>"/></br></center>
+<br/>
 <br/>
 <%= @event.category %>
 <br/>
