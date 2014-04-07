@@ -1,3 +1,3 @@
-every 10.minutes do
-  runner "User.trigger_daily_emails!"
-end
+# every 1.day do
+#   runner "User.trigger_daily_emails!"
+# end
