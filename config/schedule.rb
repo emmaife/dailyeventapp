@@ -1,3 +1,3 @@
 every 10.minutes do
-  runner "User.update"
+  runner "User.trigger_daily_emails!"
 end

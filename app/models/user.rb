@@ -10,5 +10,11 @@ class User < ActiveRecord::Base
   has_many :categories, :through => :user_categories
 
  
+  def self.trigger_daily_emails!
+    self.all.each do |user|
+    EventMailer.event_email(user).deliver
+    end
+  end
+
 
 end
