@@ -1,4 +1,7 @@
 <br/>
+
+<br/>
+<div id = "mainevent">
 <%= form_for(@user) do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %><br/>
@@ -10,9 +13,9 @@
 <% queens %>
 <% manhattan %>
 
-<font color = "#0b6121">Queens </font>|
-<font color = "green"> Brooklyn </font> |
-<font color = "#04b404">Manhattan</font>
+<font color = "red">Queens </font>|
+<font color = "black"> Brooklyn </font> |
+<font color = "blue">Manhattan</font>
 <br/>
 <br/>
 
@@ -20,13 +23,13 @@
 
     <% case %>
     <% when queens.include?(cb.text) %>
-    <font color = "#0b6121"> <%= cb.check_box %><%= cb.label %></font>
+    <font color = "red"> <%= cb.check_box %><%= cb.label %></font>
 
     <% when brooklyn.include?(cb.text) %>
-      <font color = "green"><%= cb.check_box %><%= cb.label %></font>
+      <font color = "black"><%= cb.check_box %><%= cb.label %></font>
 
     <% when manhattan.include?(cb.text) %>
-      <font color = "04b404"><%= cb.check_box %><%= cb.label %></font>
+      <font color = "blue"><%= cb.check_box %><%= cb.label %></font>
 
     <% end %>
 
@@ -45,5 +48,5 @@
 
     <% end %>
 
-
+</div>
 <%= link_to "Home", root_path %>

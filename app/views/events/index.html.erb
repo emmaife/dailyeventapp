@@ -1,7 +1,9 @@
 
 <div align = 'right' color="red"><button type="button" class="btn btn-primary btn-lg"><%= link_to "Update Preferences", preferences_path %></button></div>
 
-
+<br/>
+<br/>
+<div id = "mainevent">
 
 <center><em><h1><%= @event.event_name %></h1></em>
 <h4><p>Neighborhood:<%= @event.neighborhood %><br/> Category:<%= @event.category %></p></h4>
@@ -15,6 +17,7 @@
 
 <br/>
 <center><img src="<%= @event.pic %>" class="img-responsive img-circle"/></br></center>
+</div>
 <br/>
 
 

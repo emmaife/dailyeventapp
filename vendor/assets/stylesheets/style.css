@@ -1,0 +1,8 @@
+body {
+background-img: url('assets/bg_img.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+  padding-top: 70px;
+  padding-bottom: 30px;
+}

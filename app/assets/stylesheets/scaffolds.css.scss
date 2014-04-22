@@ -1,5 +1,8 @@
 body {
-  background-color: #fff;
+  background-image: url('/assets/bg_img.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -17,9 +20,8 @@ header{
     top: 5px;
     max-width: 100%;
     margin: 0;
-    left: 0;
-    
-     
+    left: 0;   
+    padding: 5px 5px 5px 5px;
 }
 
 pre {
@@ -82,4 +84,17 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+#mainevent {
+  background-color:rgba(255, 255, 255, 0.70);
+  padding: 10px 20px 10px 20px;
+
+} 
+
+#user_nav{
+  color: #fff;
+} 
+#user_nav a {
+  color: red;
 }
